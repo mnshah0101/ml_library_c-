@@ -1043,7 +1043,7 @@ CMakeFiles/ml_demo.dir/src/main.cpp.o
  /Users/moksh/Desktop/quant_prep/ml_c++/include/loss.hpp
  /Users/moksh/Desktop/quant_prep/ml_c++/include/model.hpp
  /Users/moksh/Desktop/quant_prep/ml_c++/include/optimizer.hpp
- /Users/moksh/Desktop/quant_prep/ml_c++/include/LinearRegression.hpp
+ /Users/moksh/Desktop/quant_prep/ml_c++/include/LogisticRegression.hpp
  /Users/moksh/Desktop/quant_prep/ml_c++/include/csv_loader.hpp
  /Users/moksh/Desktop/quant_prep/ml_c++/include/dataset.hpp
  /opt/homebrew/include/eigen3/Eigen/Cholesky

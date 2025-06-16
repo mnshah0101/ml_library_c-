@@ -1153,10 +1153,10 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: \
   /opt/homebrew/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
   /opt/homebrew/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h \
   /opt/homebrew/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
-  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/LogisticRegression.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/model.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/LearningRateScheduler.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/dataset.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/KNearestNeighbors.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/model.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/LearningRateScheduler.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/dataset.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -1225,10 +1225,11 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__random/seed_seq.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/csv_loader.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/csv_loader.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__tree \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/optimizer.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/optimizer.hpp \
   /Users/moksh/Desktop/quant_prep/ml_c++/include/loss.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/csv_loader.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/src/../include/dataset.hpp
+  /Users/moksh/Desktop/quant_prep/ml_c++/include/LearningRateScheduler.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/include/dataset.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/include/model.hpp

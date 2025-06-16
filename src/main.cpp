@@ -2,7 +2,9 @@
 #include <vector>
 #include <string>
 #include <Eigen/Dense>
-#include "../include/LogisticRegression.hpp"
+
+#include "../include/KNearestNeighbors.hpp"
+
 #include "../include/csv_loader.hpp"
 #include "../include/dataset.hpp"
 
@@ -45,7 +47,7 @@ int main() {
         std::cout << "y shape: " << test_set.getY().size() << std::endl;
 
         // Create and train model
-        LogisticRegression model;
+        KNearestNeighbors model;
         model.fit(train_set);
 
         // Make predictions
@@ -68,11 +70,7 @@ int main() {
         std::cout << "RMSE: " << rmse << std::endl;
         std::cout << "MAE: " << mae << std::endl;
 
-        // Print feature importance
-        std::cout << "\nFeature Importance:" << std::endl;
-        for (size_t i = 0; i < feature_columns.size(); ++i) {
-            std::cout << feature_columns[i] << ": " << model.get_weights()(i) << std::endl;
-        }
+      
 
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
