@@ -1,31 +1,89 @@
 # Root CMakeLists.txt
-cmake_minimum_required(VERSION 3.14)
-project(MLFromScratch LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.10)
+project(ml_library VERSION 1.0.0 LANGUAGES CXX)
 
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(BUILD_TESTS "Build unit tests" ON)
+# Find Eigen package
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
 
-# Dependencies
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+# Set source files
+set(SOURCES
+    src/main.cpp
+)
 
-enable_testing()
+# Set header files
+set(HEADERS
+    include/KMeans.hpp
+    include/PCA.hpp
+    include/csv_loader.hpp
+    include/dataset.hpp
+    include/DecisionTree.hpp
+    include/KNearestNeighbors.hpp
+    include/LinearRegression.hpp
+    include/LogisticRegression.hpp
+    include/model.hpp
+    include/optimizer.hpp
+    include/LearningRateScheduler.hpp
+    include/loss.hpp
+)
 
-# Include directories
-include_directories(${PROJECT_SOURCE_DIR}/include)
+# Create static library
+add_library(ml_library STATIC ${SOURCES} ${HEADERS})
 
-# Source files
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+# Set include directories
+target_include_directories(ml_library
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
-# Core library
-add_library(ml_lib ${SOURCES})
+# Install rules
+include(GNUInstallDirs)
+install(TARGETS ml_library
+    EXPORT ml_library-targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
 
-target_link_libraries(ml_lib Eigen3::Eigen)
+# Install headers
+install(DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ml_library
+    FILES_MATCHING PATTERN "*.hpp"
+)
 
-# Demo executable
-add_executable(ml_demo src/main.cpp)
-target_link_libraries(ml_demo ml_lib)
+# Export targets
+install(EXPORT ml_library-targets
+    FILE ml_library-targets.cmake
+    NAMESPACE ml_library::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ml_library
+)
+
+# Create and install config files
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/ml_library-config-version.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/ml_library-config.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/ml_library-config.cmake"
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ml_library
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/ml_library-config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/ml_library-config-version.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ml_library
+)
 
 

@@ -2,11 +2,32 @@
 #include <vector>
 #include <string>
 #include <Eigen/Dense>
+#include <iomanip>
 
-#include "../include/KNearestNeighbors.hpp"
-
+#include "../include/KMeans.hpp"
+#include "../include/PCA.hpp"
 #include "../include/csv_loader.hpp"
 #include "../include/dataset.hpp"
+
+void printMatrix(const Eigen::MatrixXd& matrix, const std::string& name) {
+    std::cout << "\n" << name << ":" << std::endl;
+    std::cout << std::fixed << std::setprecision(4);
+    for(int i = 0; i < matrix.rows(); i++) {
+        for(int j = 0; j < matrix.cols(); j++) {
+            std::cout << std::setw(10) << matrix(i, j) << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void printVector(const Eigen::VectorXd& vector, const std::string& name) {
+    std::cout << "\n" << name << ":" << std::endl;
+    std::cout << std::fixed << std::setprecision(4);
+    for(int i = 0; i < vector.size(); i++) {
+        std::cout << std::setw(10) << vector(i) << " ";
+    }
+    std::cout << std::endl;
+}
 
 int main() {
     try {
@@ -46,31 +67,50 @@ int main() {
         std::cout << "X shape: " << test_set.getX().rows() << "x" << test_set.getX().cols() << std::endl;
         std::cout << "y shape: " << test_set.getY().size() << std::endl;
 
-        // Create and train model
-        KNearestNeighbors model;
-        model.fit(train_set);
+        // PCA Test
+        std::cout << "\n=== PCA Test ===" << std::endl;
+        
+        // Create and fit PCA model
+        PCA pca(2);  // Reduce to 2 dimensions
+        pca.fit(train_set);
+        
+        // Transform the data
+        Eigen::MatrixXd transformed_train = pca.transform(train_set.getX());
+        Eigen::MatrixXd transformed_test = pca.transform(test_set.getX());
+        
+        // Print results
+        std::cout << "\nOriginal feature count: " << train_set.getX().cols() << std::endl;
+        std::cout << "Reduced feature count: " << transformed_train.cols() << std::endl;
+        
+        // Print explained variance ratio
+        printVector(pca.get_explained_variance_ratio(), "Explained Variance Ratio");
+        
+        // Print first few transformed samples
+        printMatrix(transformed_train.block(0, 0, 5, 2), "First 5 Transformed Training Samples");
+        
+        // Test inverse transform
+        Eigen::MatrixXd reconstructed = pca.inverse_transform(transformed_train);
+        printMatrix(reconstructed.block(0, 0, 5, reconstructed.cols()), "First 5 Reconstructed Samples");
+        
+        // Calculate reconstruction error
+        double reconstruction_error = (train_set.getX() - reconstructed).norm() / train_set.getX().norm();
+        std::cout << "\nReconstruction Error: " << reconstruction_error << std::endl;
+
+        // KMeans Test
+        std::cout << "\n=== KMeans Test ===" << std::endl;
+        
+        // Create and train KMeans model
+        KMeans model(3, 100);
+        model.fit(transformed_train);  // Using PCA-transformed data
 
         // Make predictions
-        Eigen::VectorXd predictions = model.predict(test_set.getX());
-        
-        // Print prediction dimensions
-        std::cout << "\nPrediction dimensions:" << std::endl;
-        std::cout << "Predictions shape: " << predictions.size() << std::endl;
-        std::cout << "Test set y shape: " << test_set.getY().size() << std::endl;
+        Eigen::VectorXi predictions = model.predict(transformed_test);
 
         // Print predictions
-
-        // Calculate and print metrics
-        double mse = (predictions - test_set.getY()).array().square().mean();
-        double rmse = std::sqrt(mse);
-        double mae = (predictions - test_set.getY()).array().abs().mean();
-
-        std::cout << "\nModel Performance:" << std::endl;
-        std::cout << "MSE: " << mse << std::endl;
-        std::cout << "RMSE: " << rmse << std::endl;
-        std::cout << "MAE: " << mae << std::endl;
-
-      
+        std::cout << "\nPredictions:" << std::endl;
+        for (int i = 0; i < predictions.size(); i++) {
+            std::cout << "Sample " << i << ": " << predictions(i) << std::endl;
+        }
 
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;

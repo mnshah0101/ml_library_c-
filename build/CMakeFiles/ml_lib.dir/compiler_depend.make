@@ -1036,16 +1036,12 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: /Users/moksh/Desktop/quant_prep/ml_c++/src
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
+  /Users/moksh/Desktop/quant_prep/ml_c++/include/KMeans.hpp \
   /Users/moksh/Desktop/quant_prep/ml_c++/include/LearningRateScheduler.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/dataset.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/loss.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/model.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/KNearestNeighbors.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/LearningRateScheduler.hpp \
+  /Users/moksh/Desktop/quant_prep/ml_c++/include/PCA.hpp \
   /Users/moksh/Desktop/quant_prep/ml_c++/include/csv_loader.hpp \
   /Users/moksh/Desktop/quant_prep/ml_c++/include/dataset.hpp \
   /Users/moksh/Desktop/quant_prep/ml_c++/include/model.hpp \
-  /Users/moksh/Desktop/quant_prep/ml_c++/include/optimizer.hpp \
   /opt/homebrew/include/eigen3/Eigen/Cholesky \
   /opt/homebrew/include/eigen3/Eigen/Core \
   /opt/homebrew/include/eigen3/Eigen/Dense \
@@ -1449,7 +1445,7 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: /Users/moksh/Desktop/quant_prep/ml_c++/src
 
 /opt/homebrew/include/eigen3/Eigen/Cholesky:
 
-/Users/moksh/Desktop/quant_prep/ml_c++/include/optimizer.hpp:
+/Users/moksh/Desktop/quant_prep/ml_c++/include/PCA.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h:
 
@@ -1692,8 +1688,6 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: /Users/moksh/Desktop/quant_prep/ml_c++/src
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/wctype.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/limits:
-
-/Users/moksh/Desktop/quant_prep/ml_c++/include/loss.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iterator:
 
@@ -2805,6 +2799,8 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: /Users/moksh/Desktop/quant_prep/ml_c++/src
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/arm/_mcontext.h:
 
+/Users/moksh/Desktop/quant_prep/ml_c++/include/KMeans.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__atomic/cxx_atomic_impl.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__random/linear_congruential_engine.h:
@@ -2980,8 +2976,6 @@ CMakeFiles/ml_lib.dir/src/main.cpp.o: /Users/moksh/Desktop/quant_prep/ml_c++/src
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assertion_handler:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/ranges_transform.h:
-
-/Users/moksh/Desktop/quant_prep/ml_c++/include/KNearestNeighbors.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/___wctype.h:
 
